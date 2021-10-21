@@ -1,6 +1,6 @@
 import Form from "./elements/Form";
 import Input from "./elements/Input";
-import Button from "./elements/Button";
+import Button from "../Button";
 
 import UserContext from "../../contexts/UserContext";
 
@@ -25,8 +25,10 @@ export default function SignForm({isSignUp}) {
             return;
         }
 
-        setIsButtonEnabled(false);
-        let body;
+        history.push("/main");
+
+        // setIsButtonEnabled(false);
+        // let body;
 
         // if(isSignUp) {
         //     body = {

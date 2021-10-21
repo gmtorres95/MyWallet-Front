@@ -1,5 +1,6 @@
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
+import Main from "./pages/Main/Main";
 
 import UserContext from "./contexts/UserContext";
 import { getFromLocalStorage } from "./utils/localStorageUtils";
@@ -18,6 +19,7 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={SignIn} />
                     <Route exact path="/sign-up" component={SignUp} />
+                    <Route exact path="/main" component={Main} />
                 </Switch>
             </UserContext.Provider>
         </Router>
@@ -46,6 +48,7 @@ const GlobalReset = createGlobalStyle`
     }
     body {
         line-height: 1;
+        background-color: #8C11BE;
     }
     ol, ul {
         list-style: none;
