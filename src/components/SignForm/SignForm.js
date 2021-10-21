@@ -2,8 +2,11 @@ import Form from "./elements/Form";
 import Input from "./elements/Input";
 import Button from "./elements/Button";
 
-import { useState } from "react";
+import UserContext from "../../contexts/UserContext";
+
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 export default function SignForm({isSignUp}) {
     const [name, setName] = useState("");
@@ -11,9 +14,40 @@ export default function SignForm({isSignUp}) {
     const [password, setPassword] = useState("");
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [isButtonEnabled, setIsButtonEnabled] = useState(true);
+    const history = useHistory();
+    const {setLogin} = useContext(UserContext);
+
+    function signHelper(event) {
+        event.preventDefault();
+
+        if(password !== confirmedPassword && isSignUp) {
+            alert("As duas senhas devem ser idênticas!")
+            return;
+        }
+
+        setIsButtonEnabled(false);
+        let body;
+
+        // if(isSignUp) {
+        //     body = {
+        //         name,
+        //         email,
+        //         password
+        //     }
+        //     createNewUser(body, history, setIsButtonEnabled);
+        // }
+        // else {
+        //     body = {
+        //         email,
+        //         password
+        //     }
+        //     login(body, setLogin, setIsButtonEnabled, history);
+        // }
+
+    }
 
     return (
-        <Form onSubmit={isButtonEnabled ? e => e.preventDefault() : e => e.preventDefault()}>
+        <Form onSubmit={isButtonEnabled ? signHelper : e => e.preventDefault()}>
             {isSignUp ? 
                 <Input
                     type="text"

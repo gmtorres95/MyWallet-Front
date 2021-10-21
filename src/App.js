@@ -1,17 +1,25 @@
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
+import UserContext from "./contexts/UserContext";
+import { getFromLocalStorage } from "./utils/localStorageUtils";
+
 import { createGlobalStyle } from "styled-components";
+import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
+    const [login, setLogin] = useState(() => getFromLocalStorage());
+
     return (
         <Router>
-            <GlobalReset />
-            <Switch>
-                <Route exact path="/" component={SignIn} />
-                <Route exact path="/sign-up" component={SignUp} />
-            </Switch>
+            <UserContext.Provider value={{login, setLogin}}>
+                <GlobalReset />
+                <Switch>
+                    <Route exact path="/" component={SignIn} />
+                    <Route exact path="/sign-up" component={SignUp} />
+                </Switch>
+            </UserContext.Provider>
         </Router>
     );
 }
