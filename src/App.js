@@ -1,14 +1,25 @@
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+
 import { createGlobalStyle } from "styled-components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
     return (
-        <>
-            OK
-        </>
+        <Router>
+            <GlobalReset />
+            <Switch>
+                <Route exact path="/" component={SignIn} />
+                <Route exact path="/sign-up" component={SignUp} />
+            </Switch>
+        </Router>
     );
 }
 
 const GlobalReset = createGlobalStyle`
+    * {
+        box-sizing: border-box;
+    }
     html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
     address, big, button, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt,
     var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead,
