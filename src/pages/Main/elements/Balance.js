@@ -1,8 +1,13 @@
 import EntryTable from "./EntryTable";
 
+import UserContext from "../../../contexts/UserContext";
+
 import styled from "styled-components";
+import { useContext } from "react";
 
 export default function Balance() {
+    const {user} = useContext(UserContext);
+
     const entries = [
         {
             date: "30/11",

@@ -1,6 +1,6 @@
 import Header from "./elements/Header";
 import Balance from "./elements/Balance";
-import NewEntry from "./elements/NewEntry";
+import EntryButton from "./elements/EntryButton";
 
 import styled from "styled-components";
 
@@ -10,8 +10,8 @@ export default function Main() {
             <Header name="Fulano" />
             <Balance />
             <Menu>
-                <NewEntry isIncome={true}/>
-                <NewEntry isIncome={false}/>
+                <EntryButton isIncome={true}/>
+                <EntryButton isIncome={false}/>
             </Menu>
         </>
     );

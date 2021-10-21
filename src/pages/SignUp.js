@@ -1,4 +1,4 @@
-import SignForm from "../../components/SignForm/SignForm";
+import SignForm from "../components/SignForm";
 
 import styled from "styled-components";
 

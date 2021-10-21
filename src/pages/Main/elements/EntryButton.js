@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { CgAdd, CgRemove } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
-export default function NewEntry({isIncome}) {
+export default function EntryButton({isIncome}) {
     return (
         <Wrapper>
-            <Link to="/">
+            <Link to={isIncome ? "/new-entry/income" : "/new-entry/outcome"}>
                 {isIncome ? <AddIcon /> : <RemoveIcon />}
                 {isIncome ? <span>Nova entrada</span> : <span>Nova saída</span>}
             </Link>
