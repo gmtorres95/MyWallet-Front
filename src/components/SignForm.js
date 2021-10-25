@@ -3,6 +3,7 @@ import Input from "./Input";
 import Button from "./Button";
 
 import UserContext from "../contexts/UserContext";
+import { createNewUser } from "../service/api";
 
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -25,7 +26,6 @@ export default function SignForm({isSignUp}) {
             return;
         }
 
-
         setIsButtonEnabled(false);
         let body;
 
@@ -35,8 +35,7 @@ export default function SignForm({isSignUp}) {
                 email,
                 password
             }
-            // createNewUser(body, history, setIsButtonEnabled);
-            history.push("/");
+            createNewUser(body, history, setIsButtonEnabled);
         }
         else {
             body = {
@@ -44,7 +43,6 @@ export default function SignForm({isSignUp}) {
                 password
             }
             // login(body, setLogin, setIsButtonEnabled, history);
-            history.push("/main");
         }
 
     }
