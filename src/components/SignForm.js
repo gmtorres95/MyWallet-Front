@@ -3,7 +3,8 @@ import Input from "./Input";
 import Button from "./Button";
 
 import UserContext from "../contexts/UserContext";
-import { createNewUser } from "../service/api";
+import { createNewUser, authenticateUser } from "../service/api";
+import { saveToLocalStorage } from "../utils/localStorageUtils";
 
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -42,7 +43,7 @@ export default function SignForm({isSignUp}) {
                 email,
                 password
             }
-            // login(body, setLogin, setIsButtonEnabled, history);
+            authenticateUser(body, setUser, setIsButtonEnabled, history, saveToLocalStorage);
         }
 
     }
