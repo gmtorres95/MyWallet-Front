@@ -1,13 +1,24 @@
+import { clearLocalStorage } from "../../../utils/localStorageUtils";
+import UserContext from "../../../contexts/UserContext";
+
 import styled from "styled-components";
 import { AiOutlineExport } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { useContext } from "react";
 
-export default function Header({name}) {
+export default function Header() {
+    const {user} = useContext(UserContext);
+    const history = useHistory();
+
     return (
         <Wrapper>
-            Olá, {name}
+            Olá, {user.data.name}
             <Link to="/">
-                <ExitDoor />
+                <ExitDoor onClick={() => {
+                    clearLocalStorage();
+                    history.push("/");
+                }}/>
             </Link>
         </Wrapper>
     );

@@ -7,7 +7,7 @@ import styled from "styled-components";
 export default function Main() {
     return (
         <>
-            <Header name="Fulano" />
+            <Header />
             <Balance />
             <Menu>
                 <EntryButton isIncome={true}/>
