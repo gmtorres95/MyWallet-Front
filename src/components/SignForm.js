@@ -3,7 +3,7 @@ import Input from "./Input";
 import Button from "./Button";
 
 import UserContext from "../contexts/UserContext";
-import { createNewUser, authenticateUser } from "../service/api";
+import { createNewUser, authenticateUser } from "../service/service";
 import { saveToLocalStorage } from "../utils/localStorageUtils";
 
 import { useState, useContext } from "react";
@@ -43,7 +43,7 @@ export default function SignForm({isSignUp}) {
                 email,
                 password
             }
-            authenticateUser(body, setUser, setIsButtonEnabled, history, saveToLocalStorage);
+            authenticateUser(body, setUser, setIsButtonEnabled, history);
         }
 
     }

@@ -1,6 +1,17 @@
+import { saveToLocalStorage, clearLocalStorage } from "../utils/localStorageUtils";
+
 import axios from "axios";
 
 const URL = "http://localhost:4000"
+
+function createConfig(token) {
+    const config = {
+        headers: {
+            "Authorization": "Bearer " + token
+        }
+    };
+    return config;
+}
 
 function createNewUser(body, history, setIsButtonEnabled) {
     axios.post(URL + "/sign-up", body)
@@ -17,7 +28,7 @@ function createNewUser(body, history, setIsButtonEnabled) {
         })
 }
 
-function authenticateUser(body, setUser, setIsButtonEnabled, history, saveToLocalStorage) {
+function authenticateUser(body, setUser, setIsButtonEnabled, history) {
     axios.post(URL + "/sign-in", body)
         .then((resp) => {
             saveToLocalStorage(resp.data);
@@ -32,7 +43,25 @@ function authenticateUser(body, setUser, setIsButtonEnabled, history, saveToLoca
         })
 }
 
+function createNewEntry(body, token, history, setIsButtonEnabled) {
+    axios.post(URL + "/main", body, createConfig(token))
+        .then(() => {
+            setIsButtonEnabled(true);
+            history.push("/main");
+        })
+        .catch(err => {
+            if(err.response.status === 401) {
+                alert("Erro de autenticação!\nFaça login novamente");
+                clearLocalStorage();
+                history.push("/");
+            }
+            else alert("Erro no sistema!\nTente novamente");
+            setIsButtonEnabled(true);
+        })
+}
+
 export {
     createNewUser,
-    authenticateUser
+    authenticateUser,
+    createNewEntry
 }
