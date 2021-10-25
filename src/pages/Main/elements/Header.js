@@ -1,5 +1,6 @@
 import { clearLocalStorage } from "../../../utils/localStorageUtils";
 import UserContext from "../../../contexts/UserContext";
+import { endSession } from "../../../service/service";
 
 import styled from "styled-components";
 import { AiOutlineExport } from "react-icons/ai";
@@ -15,10 +16,7 @@ export default function Header() {
         <Wrapper>
             Olá, {user.data.name}
             <Link to="/">
-                <ExitDoor onClick={() => {
-                    clearLocalStorage();
-                    history.push("/");
-                }}/>
+                <ExitDoor onClick={() => endSession(user.token, history)}/>
             </Link>
         </Wrapper>
     );

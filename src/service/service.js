@@ -43,6 +43,17 @@ function authenticateUser(body, setUser, setIsButtonEnabled, history) {
         })
 }
 
+function endSession(token, history) {
+    axios.delete(URL + "/sign-out", createConfig(token))
+        .then(() => {
+            clearLocalStorage();
+            history.push("/");
+        })
+        .catch(err => {
+            alert("Erro!\nTente novamente");
+        })
+}
+
 function createNewEntry(body, token, history, setIsButtonEnabled) {
     axios.post(URL + "/main", body, createConfig(token))
         .then(() => {
@@ -63,5 +74,6 @@ function createNewEntry(body, token, history, setIsButtonEnabled) {
 export {
     createNewUser,
     authenticateUser,
+    endSession,
     createNewEntry
 }
