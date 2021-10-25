@@ -1,13 +1,18 @@
 import EntryTable from "./EntryTable";
 
 import UserContext from "../../../contexts/UserContext";
+import { getEntries } from "../../../service/service";
 
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Balance() {
     const [entries, setEntries] = useState([]);
     const {user} = useContext(UserContext);
+
+    useEffect(() => {
+        getEntries(user.token, setEntries);
+    }, []);
     
     return (
         <Wrapper>

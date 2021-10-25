@@ -21,7 +21,6 @@ export default function NewEntry() {
         event.preventDefault();
 
         const value = Number(amount.replace(",","."));
-        console.log(value)
 
         if(value <= 0) return alert("Insira um valor maior do que zero");
         if(isNaN(value)) return alert("Insira um valor válido");

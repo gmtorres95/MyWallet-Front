@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export default function EntryTable({entries}) {
-    const total = entries.reduce((sum, curr) => curr.income ? sum + curr.value : sum - curr.value, 0);
-
+    const total = entries.reduce((sum, curr) => curr.income ? sum + Number(curr.value) : sum - Number(curr.value), 0);
     return (
         <StyledTable>
             <tbody>
                 {entries.map((entry, i) => 
                     <tr key={i}>
                         <td>
-                            <Date>{entry.date} </Date>
+                            <Date>{entry.date.split("T")[0].substring(5, 10).replace("-","/")}</Date>
                             <span>{entry.description}</span>
                         </td>
                         <td>
@@ -66,6 +65,7 @@ const StyledTable = styled.table`
 
 const Date = styled.span`
     color: #C6C6C6;
+    margin-right: 8px;
 `;
 
 const Amount = styled.span`

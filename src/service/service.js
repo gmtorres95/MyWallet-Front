@@ -71,9 +71,20 @@ function createNewEntry(body, token, history, setIsButtonEnabled) {
         })
 }
 
+function getEntries(token, setEntries) {
+    axios.get(URL + "/main", createConfig(token))
+        .then(resp => {
+            setEntries(resp.data);
+        })
+        .catch(err => {
+            alert("Erro no sistema!");
+        })
+}
+
 export {
     createNewUser,
     authenticateUser,
     endSession,
-    createNewEntry
+    createNewEntry,
+    getEntries
 }
