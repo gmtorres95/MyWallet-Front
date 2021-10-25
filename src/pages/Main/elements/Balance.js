@@ -12,7 +12,7 @@ export default function Balance() {
 
     useEffect(() => {
         getEntries(user.token, setEntries);
-    }, []);
+    }, [user.token]);
     
     return (
         <Wrapper>

@@ -1,4 +1,3 @@
-import { clearLocalStorage } from "../../../utils/localStorageUtils";
 import UserContext from "../../../contexts/UserContext";
 import { endSession } from "../../../service/service";
 
@@ -9,14 +8,14 @@ import { useHistory } from "react-router";
 import { useContext } from "react";
 
 export default function Header() {
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
     const history = useHistory();
 
     return (
         <Wrapper>
             Olá, {user.data.name}
             <Link to="/">
-                <ExitDoor onClick={() => endSession(user.token, history)}/>
+                <ExitDoor onClick={() => endSession(user.token, history, setUser)}/>
             </Link>
         </Wrapper>
     );

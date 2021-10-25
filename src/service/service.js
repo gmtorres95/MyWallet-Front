@@ -43,11 +43,11 @@ function authenticateUser(body, setUser, setIsButtonEnabled, history) {
         })
 }
 
-function endSession(token, history) {
+function endSession(token, history, setUser) {
     axios.delete(URL + "/sign-out", createConfig(token))
         .then(() => {
             clearLocalStorage();
-            history.push("/");
+            window.open("/","_self");
         })
         .catch(err => {
             alert("Erro!\nTente novamente");
@@ -77,7 +77,7 @@ function getEntries(token, setEntries) {
             setEntries(resp.data);
         })
         .catch(err => {
-            alert("Erro no sistema!");
+            console.log(err);
         })
 }
 

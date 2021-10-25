@@ -4,7 +4,6 @@ import Button from "./Button";
 
 import UserContext from "../contexts/UserContext";
 import { createNewUser, authenticateUser } from "../service/service";
-import { saveToLocalStorage } from "../utils/localStorageUtils";
 
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
