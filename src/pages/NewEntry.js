@@ -20,12 +20,16 @@ export default function NewEntry() {
     function newEntryHelper(event) {
         event.preventDefault();
 
-        if(amount <= 0) return alert("Insira um valor maior do que zero");
+        const value = Number(amount.replace(",","."));
+        console.log(value)
+
+        if(value <= 0) return alert("Insira um valor maior do que zero");
+        if(isNaN(value)) return alert("Insira um valor válido");
 
         setIsButtonEnabled(false);
         const body = {
             description,
-            value: amount,
+            value,
             income: isIncome
         };
 
@@ -37,7 +41,7 @@ export default function NewEntry() {
             <Header>{isIncome ? "Nova entrada" : "Nova saída"}</Header>
             <Form onSubmit={isButtonEnabled ? newEntryHelper : e => e.preventDefault()}>
                 <Input
-                    type="number"
+                    type="text"
                     placeholder="Valor"
                     value={amount}
                     onChange={e => setAmount(e.target.value)}
