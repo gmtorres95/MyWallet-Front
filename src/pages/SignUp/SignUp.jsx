@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import { createNewUser } from "../../services/userService";
 import Wrapper from "./Wrapper";
@@ -18,7 +19,8 @@ export default function SignUp() {
   function signUpHelper(e) {
     e.preventDefault();
 
-    if (password !== confirmedPassword) return alert("As duas senhas devem ser idênticas!");
+    if (password !== confirmedPassword)
+      return Swal.fire("Cadastro inválido!", "As duas senhas devem ser idênticas", "error");
 
     setIsButtonEnabled(false);
     const body = {
@@ -32,7 +34,9 @@ export default function SignUp() {
   return (
     <Wrapper>
       <h1>MyWallet</h1>
-      <form onSubmit={isButtonEnabled ? signUpHelper : (e) => e.preventDefault()}>
+      <form
+        onSubmit={isButtonEnabled ? signUpHelper : (e) => e.preventDefault()}
+      >
         <StyledInput
           type="text"
           placeholder="Nome"

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import Swal from "sweetalert2";
 
 import { createNewEntry } from "../../services/entriesService";
 import UserContext from "../../contexts/UserContext";
@@ -19,8 +20,10 @@ export default function NewEntry() {
     e.preventDefault();
 
     const value = Number(amount.replace(",", "."));
-    if (value <= 0) return alert("Insira um valor maior do que zero");
-    if (isNaN(value)) return alert("Insira um valor válido");
+    if (value <= 0)
+      return Swal.fire("Entrada inválida!", "Insira um valor maior do que zero", "error");
+    if (isNaN(value))
+      return Swal.fire("Entrada inválida!", "Insira um valor válido", "error");
 
     setIsButtonEnabled(false);
     const body = {
