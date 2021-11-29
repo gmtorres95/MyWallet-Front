@@ -1,8 +1,6 @@
-import { saveToLocalStorage, clearLocalStorage } from "../utils/localStorageUtils";
-
 import axios from "axios";
 
-const URL = "http://localhost:4000"
+import { saveToLocalStorage, clearLocalStorage } from "../utils/localStorageUtils";
 
 function createConfig(token) {
     const config = {
@@ -14,7 +12,7 @@ function createConfig(token) {
 }
 
 function createNewUser(body, history, setIsButtonEnabled) {
-    axios.post(URL + "/sign-up", body)
+    axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, body)
         .then(() => {
             setIsButtonEnabled(true);
             history.push("/");
@@ -29,7 +27,7 @@ function createNewUser(body, history, setIsButtonEnabled) {
 }
 
 function authenticateUser(body, setUser, setIsButtonEnabled, history) {
-    axios.post(URL + "/sign-in", body)
+    axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-in`, body)
         .then((resp) => {
             saveToLocalStorage(resp.data);
             setUser(resp.data);
@@ -43,19 +41,8 @@ function authenticateUser(body, setUser, setIsButtonEnabled, history) {
         })
 }
 
-function endSession(token, history, setUser) {
-    axios.delete(URL + "/sign-out", createConfig(token))
-        .then(() => {
-            clearLocalStorage();
-            window.open("/","_self");
-        })
-        .catch(err => {
-            alert("Erro!\nTente novamente");
-        })
-}
-
 function createNewEntry(body, token, history, setIsButtonEnabled) {
-    axios.post(URL + "/main", body, createConfig(token))
+    axios.post(`${process.env.REACT_APP_API_BASE_URL}/entries`, body, createConfig(token))
         .then(() => {
             setIsButtonEnabled(true);
             history.push("/main");
@@ -72,7 +59,7 @@ function createNewEntry(body, token, history, setIsButtonEnabled) {
 }
 
 function getEntries(token, setEntries) {
-    axios.get(URL + "/main", createConfig(token))
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/entries`, createConfig(token))
         .then(resp => {
             setEntries(resp.data);
         })
@@ -84,7 +71,6 @@ function getEntries(token, setEntries) {
 export {
     createNewUser,
     authenticateUser,
-    endSession,
     createNewEntry,
     getEntries
 }
