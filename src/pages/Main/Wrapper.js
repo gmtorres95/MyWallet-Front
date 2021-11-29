@@ -23,12 +23,23 @@ export default styled.div`
     height: calc(100vh - 221px);
     border-radius: 5px;
     margin: 0px 24px;
-    padding: 0px 12px 10px 16px;
+    padding: 0px 12px;
     background-color: #fff;
   }
 
   span {
     width: 0px;
+  }
+
+  p {
+    height: 100%;
+    padding: 40px;
+    color: #868686;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   a {

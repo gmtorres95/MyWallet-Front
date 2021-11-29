@@ -39,6 +39,10 @@ export default styled.table`
     font-size: 17px;
   }
 
+  tfoot tr {
+    margin: 8px 0px;
+  }
+
   tfoot td:first-child {
     font-weight: 700;
   }
