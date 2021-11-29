@@ -1,8 +1,8 @@
 export default function createConfig(token) {
   const config = {
-      headers: {
-          "Authorization": "Bearer " + token
-      }
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   };
   return config;
 }

@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import * as Icons from "./StyledIcons";
-import Wrapper from "./Wrapper.js";
-import Header from "./Header";
-import Balance from "./Balance";
+import * as Icons from './StyledIcons';
+import Wrapper from './Wrapper';
+import Header from './Header';
+import Balance from './Balance';
 
 export default function Main() {
   return (
@@ -12,13 +12,13 @@ export default function Main() {
       <Header />
       <Balance />
       <nav>
-        <button>
-          <Link to={"/new-entry/income"}>
+        <button type="button">
+          <Link to="/new-entry/income">
             <Icons.AddIcon />
             <span>Nova entrada</span>
           </Link>
         </button>
-        <button>
+        <button type="button">
           <Link to="/new-entry/outcome">
             <Icons.RemoveIcon />
             <span>Nova saída</span>

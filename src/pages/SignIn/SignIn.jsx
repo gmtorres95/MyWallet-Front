@@ -1,22 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import { authenticateUser } from "../../services/userService";
-import UserContext from "../../contexts/UserContext";
-import Wrapper from "./Wrapper";
-import StyledInput from "../../styles/StyledInput";
-import StyledButton from "../../styles/StyledButton";
+import { authenticateUser } from '../../services/userService';
+import UserContext from '../../contexts/UserContext';
+import Wrapper from './Wrapper';
+import StyledInput from '../../styles/StyledInput';
+import StyledButton from '../../styles/StyledButton';
 
 export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isButtonEnabled, setIsButtonEnabled] = useState(true);
   const { user, setUser } = useContext(UserContext);
   const history = useHistory();
 
   useEffect(() => {
-    if (user) history.push("/main")
+    if (user) history.push('/main');
   }, [history, user]);
 
   function signInHelper(e) {

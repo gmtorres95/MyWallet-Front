@@ -1,26 +1,25 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-import { createNewUser } from "../../services/userService";
-import Wrapper from "./Wrapper";
-import StyledInput from "../../styles/StyledInput";
-import StyledButton from "../../styles/StyledButton";
+import { createNewUser } from '../../services/userService';
+import Wrapper from './Wrapper';
+import StyledInput from '../../styles/StyledInput';
+import StyledButton from '../../styles/StyledButton';
 
 export default function SignUp() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmedPassword, setConfirmedPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmedPassword, setConfirmedPassword] = useState('');
   const [isButtonEnabled, setIsButtonEnabled] = useState(true);
   const history = useHistory();
 
   function signUpHelper(e) {
     e.preventDefault();
 
-    if (password !== confirmedPassword)
-      return Swal.fire("Cadastro inválido!", "As duas senhas devem ser idênticas", "error");
+    if (password !== confirmedPassword) return Swal.fire('Cadastro inválido!', 'As duas senhas devem ser idênticas', 'error');
 
     setIsButtonEnabled(false);
     const body = {

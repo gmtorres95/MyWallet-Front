@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 
-import { getEntries } from "../../services/entriesService";
-import UserContext from "../../contexts/UserContext";
-import EntryTable from "./EntryTable";
+import { getEntries } from '../../services/entriesService';
+import UserContext from '../../contexts/UserContext';
+import EntryTable from './EntryTable';
 
 export default function Balance() {
   const [entries, setEntries] = useState([]);

@@ -1,6 +1,6 @@
-import { AiOutlineExport } from "react-icons/ai";
-import { CgAdd, CgRemove } from "react-icons/cg";
-import styled from "styled-components";
+import { AiOutlineExport } from 'react-icons/ai';
+import { CgAdd, CgRemove } from 'react-icons/cg';
+import styled from 'styled-components';
 
 export const ExitDoor = styled(AiOutlineExport)`
     font-size: 26px;

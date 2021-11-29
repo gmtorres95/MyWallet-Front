@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router";
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 
-import UserContext from "../../contexts/UserContext";
-import * as Icons from "./StyledIcons";
+import UserContext from '../../contexts/UserContext';
+import * as Icons from './StyledIcons';
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -11,7 +11,7 @@ export default function Header() {
   function signOut() {
     localStorage.clear();
     setUser(undefined);
-    history.push("/")
+    history.push('/');
   }
 
   return (
