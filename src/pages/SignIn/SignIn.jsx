@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -12,8 +12,12 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(true);
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const history = useHistory();
+
+  useEffect(() => {
+    if (user) history.push("/main")
+  }, [history, user]);
 
   function signInHelper(e) {
     e.preventDefault();

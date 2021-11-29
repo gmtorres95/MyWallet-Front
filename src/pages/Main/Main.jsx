@@ -1,10 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import * as Icons from "./StyledIcons";
 import Wrapper from "./Wrapper.js";
 import Header from "./Header";
 import Balance from "./Balance";
-import { Link } from "react-router-dom";
 
 export default function Main() {
   return (

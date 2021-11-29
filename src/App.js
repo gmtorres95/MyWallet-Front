@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { getFromLocalStorage } from "./utils/localStorageUtils";
 import UserContext from "./contexts/UserContext";
 import GlobalStyle from "./styles/GlobalStyle";
 import SignIn from "./pages/SignIn/SignIn";
@@ -10,7 +9,7 @@ import Main from "./pages/Main/Main";
 import NewEntry from "./pages/NewEntry/NewEntry";
 
 export default function App() {
-  const [user, setUser] = useState(getFromLocalStorage);
+  const [user, setUser] = useState(localStorage.length ? JSON.parse(localStorage.getItem("user")) : undefined);
 
   return (
     <Router>
