@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
+import { getEntriesSum } from "../../services/entriesService";
+import UserContext from "../../contexts/UserContext";
 import StyledTable from "./StyledTable";
 import StyledAmount from "./StyledAmount";
 
 export default function EntryTable({ entries }) {
-  const total = entries.reduce((sum, curr) => curr.income ? sum + Number(curr.value) : sum - Number(curr.value), 0);
+  const [total, setTotal] = useState(0);
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {getEntriesSum(user.token, setTotal)}, [user.token]);
+
   return (
     <StyledTable>
       <tbody>

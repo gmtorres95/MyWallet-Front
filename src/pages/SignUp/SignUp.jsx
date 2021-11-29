@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
-import { createNewUser } from "../../service/service";
+import { createNewUser } from "../../services/userService";
 import Wrapper from "./Wrapper";
 import StyledInput from "../../styles/StyledInput";
 import StyledButton from "../../styles/StyledButton";

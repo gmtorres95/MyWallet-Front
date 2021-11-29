@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useHistory, useParams } from "react-router";
 
-import { createNewEntry } from "../../service/service";
+import { createNewEntry } from "../../services/entriesService";
 import UserContext from "../../contexts/UserContext";
 import StyledInput from "../../styles/StyledInput";
 import StyledButton from "../../styles/StyledButton";

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
-import { authenticateUser } from "../../service/service";
+import { authenticateUser } from "../../services/userService";
 import UserContext from "../../contexts/UserContext";
 import Wrapper from "./Wrapper";
 import StyledInput from "../../styles/StyledInput";

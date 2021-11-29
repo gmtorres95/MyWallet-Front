@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { getEntries } from "../../service/service";
+import { getEntries } from "../../services/entriesService";
 import UserContext from "../../contexts/UserContext";
 import EntryTable from "./EntryTable";
 
