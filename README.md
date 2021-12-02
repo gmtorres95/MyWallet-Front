@@ -1,7 +1,7 @@
 # MyWallet (front-end)
 
 Your definitive solution for financial control!\
-Check the this application in production [here](https://my-wallet-front-i0ji62hu1-gmtorres95.vercel.app/)
+Check the this application in production [here](https://my-wallet-front-lac.vercel.app)
 
 ## Technologies
 
