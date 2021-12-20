@@ -1,6 +1,8 @@
 # MyWallet (front-end)
 
-Your definitive solution for financial control!\
+<img src="./public/favicon.png" height="192px" />
+
+Your definitive solution for financial control  
 Check the this application in production [here](https://my-wallet-front-lac.vercel.app)
 
 ## Technologies
@@ -8,6 +10,7 @@ Check the this application in production [here](https://my-wallet-front-lac.verc
 <div styles="display: flex">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white" />
 </div>
 
 ## How to run
