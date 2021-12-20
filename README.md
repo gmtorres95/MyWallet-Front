@@ -16,7 +16,7 @@ Check the this application in production [here](https://my-wallet-front-lac.verc
 
 ```bash
 # Clone this repository
-$ git clone https://https://github.com/gmtorres95/MyWallet-Front
+$ git clone https://github.com/gmtorres95/MyWallet-Front
 
 # Install the dependencies
 $ npm i
