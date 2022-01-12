@@ -3,6 +3,7 @@
 <img src="./public/favicon.png" height="192px" />
 
 Your definitive solution for financial control  
+Check the back-end of this application [here](https://github.com/gmtorres95/MyWallet-Back)  
 Check the this application in production [here](https://my-wallet-front-lac.vercel.app)
 
 ## Technologies
